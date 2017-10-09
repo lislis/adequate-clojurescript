@@ -82,30 +82,36 @@
 
       ---
 
+      class: center, middle
+
+      About the author
+
+      ## lislis
+
+      Web developer at [Travis CI](https://travis-ci.org/), [ClojureBridge Berlin](http://clojurebridge-berlin.org/) organizer, [end-to-end-encryption](https://www.cryptoparty.in/berlin) enthusiast
+
+      ---
+
       class: middle, center
 
-      # Prologue
-
-      ---
-
+      Prologue
       ## JavaScript
 
-      - massive, still growing, constantly renewing ecosystem
-      - seemingly everywhere, used for everything
+      ???
 
-      Lots of advantages but also problematic.
-
-      ---
-
-      A  slide about how looking outside the JS box can help with new ideas
-      and learning and improving
+      - massive, still growing, constantly evolving
+      - do everyhting, everywhere
+      - increasingly difficult to get started
+      - CoffeeScript, TypeScript
+      - similar, fixing a thing
+      - Dart, Elm and ClojureScript
+      - very different, learning new things
 
       ---
 
       class: center, middle
 
-      A language that helped me improve is ClojureScript
-
+      # ClojureScript
 
       ---
 
@@ -113,70 +119,312 @@
 
       Chapter I
 
-      # A functional lisp
+      ## A functional Lisp
 
       ---
 
-      ## Lisps
+      background-image: url(assets/john.jpeg)
+      [John McCarthy](https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)
 
-      image of john mccarthy
+      ???
+      Invented Lisp and AI
+
+      ---
+
+      Scheme
+
+      ```lisp
+      (define (square x) (* x x))
+      ```
+      --
+
+      Common Lisp
+
+      ```commonlisp
+      (defun square (x) (* x x))
+      ```
+      --
+
+      Emacs Lisp
+
+      ```lisp
+      (defun square (x) (* x x))
+      ```
+      --
+
+      Racket
+
+      ```lisp
+      (define (square x) (* x x))
+      ```
+
+      ???
+
+      - very similar, but different in the details
+      - not all are functional
+
+      ---
+
+      background-image: url(assets/rich.jpeg)
+
+      [Rich Hickey](https://twitter.com/richhickey)
+
+      ---
+
+      Scheme
+
+      ```lisp
+      (define (square x) (* x x))
+      ```
+
+      Common Lisp
+
+      ```commonlisp
+      (defun square (x) (* x x))
+      ```
+
+      Emacs Lisp
+
+      ```lisp
+      (defun square (x) (* x x))
+      ```
+
+      Racket
+
+      ```lisp
+      (define (square x) (* x x))
+      ```
+      --
+      Clojure
+
+      ```clojure
+      (defn square [x]
+        (* x x))
+      ```
 
       ---
 
       ### Syntax
 
+      --
 
-      Speciment of a lisp
+      ```clojure
+      (+ 2 4 (square 5) 6) ; calling the function defined before
+      ```
+      --
 
-      Common Lisp, Emacs Lisp, Scheme, Racket
+      - Prefix notation
 
-      ---
+      --
 
-      ### Homoiconicity
+      - No commas needed to separate values
 
-      Code is data and data is code
+      --
 
-      ---
+      - `;` or `;;` indicate a comment
 
-      ## Functional Paradigm
+      --
 
-      ---
-
-      ### Functions, functions, functions
-
-      - Functions as drop in replacement for any data type/ language primitive
-
-      - Functions take functions as arguments and return functions
-
-      - pure functions: take input and return output and have no side effects
-         a pure function given the same input will always return the same output
-
-       // explain side efects?
+      - returns last value
 
       ---
 
-      ### Immutable
+      ### Values
 
-      - data structures, once created, can never change
-      - the concept of a 'variable' is different
-         we do not point to information that can change
-         we have a label that points at different data
+      Strings
+      ```clojure
+      "I'm a string, I need double quotes"```
 
-      - state atoms
+      --
 
-      - persistent datasturctures -> fast
+      Booleans and nil
+      ```clojure
+      true
+      false
+      nil```
 
-      - immutability and pure functions 4 live
+      --
+
+      Keywords
+
+      ```clojure
+      :special-keyword```
+
+      --
+
+      Numbers
+      ```clojure
+      3 23.7 1/3```
+
+      ---
+
+      ### Defining names
+
+      --
+
+      ```clojure
+      (let [apples 5
+            oranges 3]
+        (+ apples oranges))
+      ; =>8
+      ```
+
+      ???
+
+      let -> bound to let block
+
+      --
+
+      ```clojure
+      (def apples 5)
+      (def oranges 3)
+      (+ apples oranges)
+      ; =>8
+      ```
+      ???
+      def available to entire file
+      called a symbol
+
+      ---
+
+      ### Data Structures
+
+      --
+      Vectors
+
+      ```clojure
+      [0 2 3 5 7]
+      []
+      (vector 2 (square 4) 6)
+      ```
+
+      --
+
+      Maps
+
+      ```clojure
+      {:conf "RuhrJS" :year 2017}
+      ```
+
+      --
+
+      Lists
+      ```clojure
+      '()```
+      Sets
+      ```clojure
+      #{}```
+
+      ???
+
+      - Sets etc
+      - Vectors of maps, maps of vectors etc
+
+      ---
+
+      ### Functions
+
+      --
+
+      ```clojure
+      (defn greet-ruhrjs [greeting]
+        (str greeting " RuhrJS"))
+      ```
+
+      --
+
+      ```clojure
+      (greet-ruhrjs "Guten Tag")
+      ; => "Guten Tag RuhrJS"
+      ```
+
+      --
+
+      - Every function returns its last value
+
+      --
+
+      - Functions are evaluated lists
+
+      --
+
+      - Every value can be replaced by a function
+
+      ---
+
+      ## What else?
+
+      - Clojure is functional! (Not all Lisps are)
+
+      ???
+
+      - Easy input output
+      - easy sequence stacking
+      - There is nothing else
+
+      --
+
+      - Clojure has persistent, immutable data structures! (Not all Lisps have)
+
+      ???
+      - They're fast!
+
+      --
+
+      - Clojure is homoiconic! (Like all other Lisps)
+      ???
+      - Awsome!
+      - enables macros
+      - can safe and read and write entire CLJ programs as data structures
+
+      ---
+
+      class: center, middle
+
+      Chapter 2
+
+      ## Clojure in the Browser
+
+      ---
+
+      ### Implementations
+
+      --
+
+      [Clojure](https://github.com/clojure/clojure)
+      -> Java interop | JVM
+
+      [ClojureCLR](https://github.com/clojure/clojure-clr)
+      -> C#/ .Net interop | CLR/DLR
+
+      [ClojureScript](https://github.com/clojure/clojurescript)
+      -> JavaScript interop | Browser/ NodeJS Server
+
+      --
+
+      [Clojerl](https://github.com/jfacorro/clojerl)
+      -> Erlang interop | Erlang VM
+
+      ---
+
+      ### How does that work?
+
+      --
+
+      ClojureScript JVM
+
+
+      ClojureScript JS
+      Google's Closure compiler used to optimise it
+
+      Now:
+      ClojureScript can compile itself
+
+
 
       ---
 
       ### The REPL
-
-      ---
-
-      ## Clojure
-
-      img of rich hickey
 
       ---
 
