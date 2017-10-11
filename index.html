@@ -42,6 +42,18 @@
      .img-m img {
        width: 100%;
      }
+
+     .img-ml {
+       display: block;
+       margin: auto;
+       width: 500px;
+       height: auto;
+       vertical-align: middle;
+     }
+
+     .img-ml img {
+       width: 100%
+     }
      .img-l {
        display: block;
        margin: auto;
@@ -51,6 +63,9 @@
      }
      .img-l img {
        width: 100%;
+     }
+     .inline {
+       display: inline;
      }
      a,
      a:visited {
@@ -66,7 +81,9 @@
        max-height: 400px;
        overflow: scroll
      }
-
+     .listless ul {
+       list-style: none
+     }
     </style>
   </head>
   <body>
@@ -88,7 +105,10 @@
 
       ## lislis
 
-      Web developer at [Travis CI](https://travis-ci.org/), [ClojureBridge Berlin](http://clojurebridge-berlin.org/) organizer, [end-to-end-encryption](https://www.cryptoparty.in/berlin) enthusiast
+      .listless[
+      - Web developer at [Travis CI](https://travis-ci.org/)
+      - [ClojureBridge Berlin](http://clojurebridge-berlin.org/) organizer
+      - [End-to-end-encryption](https://www.cryptoparty.in/berlin) enthusiast]
 
       ---
 
@@ -112,6 +132,7 @@
       class: center, middle
 
       # ClojureScript
+      ![cljs](assets/cljs.svg)
 
       ---
 
@@ -198,8 +219,7 @@
       Clojure
 
       ```clojure
-      (defn square [x]
-        (* x x))
+      (defn square [x] (* x x))
       ```
 
       ---
@@ -223,10 +243,6 @@
 
       - `;` or `;;` indicate a comment
 
-      --
-
-      - returns last value
-
       ---
 
       ### Values
@@ -235,55 +251,20 @@
       ```clojure
       "I'm a string, I need double quotes"```
 
-      --
-
       Booleans and nil
       ```clojure
       true
       false
       nil```
 
-      --
-
       Keywords
 
       ```clojure
       :special-keyword```
 
-      --
-
       Numbers
       ```clojure
       3 23.7 1/3```
-
-      ---
-
-      ### Defining names
-
-      --
-
-      ```clojure
-      (let [apples 5
-            oranges 3]
-        (+ apples oranges))
-      ; =>8
-      ```
-
-      ???
-
-      let -> bound to let block
-
-      --
-
-      ```clojure
-      (def apples 5)
-      (def oranges 3)
-      (+ apples oranges)
-      ; =>8
-      ```
-      ???
-      def available to entire file
-      called a symbol
 
       ---
 
@@ -294,10 +275,7 @@
 
       ```clojure
       [0 2 3 5 7]
-      []
-      (vector 2 (square 4) 6)
       ```
-
       --
 
       Maps
@@ -309,11 +287,9 @@
       --
 
       Lists
+
       ```clojure
       '()```
-      Sets
-      ```clojure
-      #{}```
 
       ???
 
@@ -349,6 +325,35 @@
       --
 
       - Every value can be replaced by a function
+
+      ---
+
+      ### Defining names
+
+      --
+
+      ```clojure
+      (let [apples 5
+            oranges 3]
+        (+ apples oranges))
+      ; =>8
+      ```
+
+      ???
+
+      let -> bound to let block
+
+      --
+
+      ```clojure
+      (def apples 5)
+      (def oranges 3)
+      (+ apples oranges)
+      ; =>8
+      ```
+      ???
+      def available to entire file
+      called a symbol
 
       ---
 
@@ -394,11 +399,15 @@
       [Clojure](https://github.com/clojure/clojure)
       -> Java interop | JVM
 
+      --
+
       [ClojureCLR](https://github.com/clojure/clojure-clr)
       -> C#/ .Net interop | CLR/DLR
 
+      --
+
       [ClojureScript](https://github.com/clojure/clojurescript)
-      -> JavaScript interop | Browser/ NodeJS Server
+      -> JavaScript interop | compiles to JS
 
       --
 
@@ -407,133 +416,174 @@
 
       ---
 
-      ### How does that work?
+      ### Compilation
 
       --
 
-      ClojureScript JVM
+      **Now-ish**
 
+      A lot of Java
+      - Compiler written in Java
+      - Google Closure needed Java
 
-      ClojureScript JS
-      Google's Closure compiler used to optimise it
+      --
 
-      Now:
-      ClojureScript can compile itself
+      **Soon-ish**
 
+      Moving towards JavaScript only!
 
+      - Bootstrapped CLJS can compile itself
+      - There is google-closure-compiler-js
 
-      ---
+      ???
 
-      ### The REPL
+      - Bootstrapped ClojureScript -> compiling itself
 
-      ---
-
-      ### Implementations
-
-      Clojure, implemented in Java and C, runs on the JVM
-      ClojureScript, implemented in C an JavaScript, runs in your browser
-
-      Clojure implementation on Windows Mono
-      Clojure implemented on the Erlang VM
+      - Google Closure compiler js
 
 
       ---
 
-      class: middle, center
+      class: center, middle
 
-      Chapter II
+      Chapter 3
 
-      # Living in the browser
-
-      ---
-
-
-      ## ClojureScript
-
-      since
-
-      Profits from both the JS/ Node and Clojure ecosystem (CLJX)
-
-      Google's Closure Compiler (dead code elimination)
-
-      Fully implemented in V8 (opposed to Java dependency)
-
-      Lumo
+      ## Tools of the trade
 
       ---
 
       ## Build tools
 
-      Leiningen
+      --
 
-      Boot
+      The two most popular build tools (Java based):
+
+      .inline[
+      ![leiningen](assets/lein.jpg)
+      [Leiningen](https://leiningen.org/)]
+
+      .inline[
+      ![boot](assets/boot.png)
+      [Boot](http://boot-clj.com/)]
+
+      --
+
+      [List of project templates](https://clojurescript.org/guides/project-templates) with everything setup for you.
 
       ---
 
-      ## Figwheel
+      class: center, middle
+
+      DEMO
+
+      ???
+
+      - lein new reagent-frontend
 
       ---
 
-      ## EDN
+      ## REPL
 
-      hiccup style templates
+      --
 
-      even CSS
+      - Read Evaluate Print Loop
+
+      --
+
+      - Interact with your running programs
+
+      --
+
+      - Various REPLs for you to use
+
+      --
+        - figwheel very common
+
+        - try lumo as standalone CLJS REPL
+          ```bash
+          $ npm install -g lumo-cljs```
+
 
       ---
 
-      ## JS <-> CLJS interop
+      class: center, middle
 
-      examples on slide
-      examples in Browser
+      DEMO
+
+      ---
+
+      ## Development & Interop
+
+      You can access JS directly from your CLJS code!
+
+      --
+
+      See [Translations from JavaScript](https://kanaka.github.io/clojurescript/web/synonym.html) and
+      [ClojureScript and React.js](http://arnebrasseur.net/talks/2017-berlin-reactjs/)
+
+      --
+
+      Depending on your compilation target, you can make use of
+      - all web APIs, JS libraries and frameworks
+      - all NodeJS modules
+      - CLJC: suitable for both Clojure and ClojureScript
+
+      Example React wrapper: [Reagent](https://github.com/reagent-project/reagent)
+
+      ---
+
+      class: center, middle
+
+      DEMO
+
+      ---
+
+      class: center, middle
+
+      Chapter 4
+
+      ## Fun and games
+
+      ---
+
+      ## Klangmeister
+
+      https://ctford.github.io/klangmeister/
+
+      .img-l[![klangmeister website](assets/klangmeister.png)]
+
+      ---
+
+      ## Maria.cloud
+
+      https://www.maria.cloud/
+
+      .img-l[![maria](assets/maria-2.png)]
+
+      ---
+
+      ## Creep Mate
+
+      https://github.com/lislis/creep-mate
+
+      .img-ml[![creep mate](assets/creep-mate.gif)]
 
       ---
 
       class: middle, center
 
-      Chapter III
-      # Building a thing
-
-      ---
-
-      ## Creating a project
-
-      ---
-
-      ## Project structure
-
-      ---
-
-      ### Dependencies
-
-      ---
-
-      ### Re-frame
-
-      re-frame reagent redux react
-
-      re-frame-trace
-
-      ---
-
-      Demo
-
-      ---
-
-      class: middle, center
-
-      # Epilogue
+      Epilogue
+      # Learning and being different
 
       ---
 
       # Thank you!
 
       mail[at]lislis[dot]de
+
       https://github.com/lislis
 
       (Slides) https://lislis.de/talks/adequate-cljs
-      (Example) https://github.com/lislis/
-
     </textarea>
     <script src="remark.min.js"></script>
     <script>var slideshow = remark.create({
