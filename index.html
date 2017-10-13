@@ -6,6 +6,7 @@
     <style>
      html, body {
        color: #333;
+       font-size: 20px
      }
      p, li {
        font-size: 24px;
@@ -297,44 +298,15 @@
 
       --
 
+      - Functions are lists
+
+      --
+
       - Every function returns its last value
 
       --
 
-      - Functions are evaluated lists
-
-      --
-
-      - Every value can be replaced by a function
-
-      ---
-
-      ### Defining names
-
-      --
-
-      ```clojure
-      (let [apples 5
-            oranges 3]
-        (+ apples oranges))
-      ; =>8
-      ```
-
-      ???
-
-      let -> bound to let block
-
-      --
-
-      ```clojure
-      (def apples 5)
-      (def oranges 3)
-      (+ apples oranges)
-      ; =>8
-      ```
-      ???
-      def available to entire file
-      called a symbol
+      - Higher order functions
 
       ---
 
@@ -350,7 +322,7 @@
 
       --
 
-      - Clojure has persistent, immutable data structures! (Not all Lisps have)
+      - Clojure has immutable data structures! (Not all Lisps have)
 
       ???
       - They're fast!
@@ -404,8 +376,6 @@
       **Now-ish**
 
       A lot of Java
-      - Compiler written in Java
-      - Google Closure needed Java
 
       --
 
@@ -413,8 +383,6 @@
 
       Moving towards JavaScript only!
 
-      - Bootstrapped CLJS can compile itself
-      - There is google-closure-compiler-js
 
       ???
 
@@ -479,15 +447,7 @@
 
       --
 
-      - Various REPLs for you to use
-
-      --
-        - figwheel very common
-
-        - try lumo as standalone CLJS REPL
-          ```bash
-          $ npm install -g lumo-cljs```
-
+      - Various REPLs for you to use (Figwheel very popular)
 
       ---
 
@@ -496,7 +456,7 @@
       DEMO
 
       ```bash
-      $ cd example && lein figwheel```
+      $ lein figwheel```
 
       ---
 
@@ -513,8 +473,10 @@
 
       Depending on your compilation target, you can make use of
       - all web APIs, JS libraries and frameworks
-      - all NodeJS modules
+      - all Node modules
       - CLJC: suitable for both Clojure and ClojureScript
+
+      --
 
       Example React wrapper: [Reagent](https://github.com/reagent-project/reagent)
 
